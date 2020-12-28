@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <title>Web Workers Demo</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body style="font-size: 24px;">
+    <div id="app"></div>
+    <h1>Web Workers Demo: The Basics</h1>
+
+    <h3>1.Advantages: run expensive operations in isolated thread without interrupting main thread</h3>
+    <h4>deal with normal expensive data</h4>
+    <h4>image processing</h4>
+    <h4>lazy loading</h4>
+    <h4>canvas paint and render</h4>
+    <h4>MVVM mode, data-driven development, deal with big data in front end</h4>
+
+    <h3>2.Disadvantages: Worker thread can not access the DOM or the parent page,
+        Worker thread can only communicate through postMessage()
+    </h3>
+    <h3>Same origin limitation</h3>
+
+    <h3>4.Basic Steps</h3>
+    <ol>
+        <li>
+            You create a web worker(two types: Worker and SharedWorker).
+        </li>
+        <li>
+            You tell the web worker what to do. (For example, crunch these numbers!)
+        </li>
+        <li>
+            You start the web worker.
+        </li>
+        <li>
+            When the web worker is done, it tells you, and your code goes from there. (For example, show the results on your page.)
+        </li>
+    </ol>
+
+    <h3>5.How to stop</h3>
+    <p>
+        There are two ways to stop a worker. First, a worker can stop itself by calling close(). 
+        More commonly,the page that created the worker will shut it down by calling the worker’s terminate() method.
+    </p>
+
+    <h3>6.postMessage() copy data, deep copy, The structured clone algorithm</h3>
+
+    <h3>7.a way to create inline worker instead of creating a new URi file in the folder, and better for webpack packaging</h3>
+    <code>var blob = new Blob([myTask]);
+        var myWorker = new Worker(window.URL.createObjectURL(blob));</code>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>
